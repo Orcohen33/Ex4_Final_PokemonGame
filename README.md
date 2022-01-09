@@ -12,6 +12,15 @@ We use a project we've already created to use search and GUI algorithms.
 Our main challenge was to satisfy the consumer request. The ultimate goal of the project is to run the game and get the best score that can be given to the customer, plus a GUI that can be used conveniently and clearly.
 </details>
 
+## Wiki contant
+
+1. Home
+2. About this project
+3. Classes
+4. Analysis Algorithms
+5. UML Diagram
+6. How to run
+
 ## How to run
 
 1. Download the project.

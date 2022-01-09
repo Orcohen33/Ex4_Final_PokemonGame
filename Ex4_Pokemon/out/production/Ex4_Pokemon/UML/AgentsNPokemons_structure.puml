@@ -1,0 +1,296 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": ""
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false // root node is included
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "gameClients.AgentsNPokemons"
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_70939 { 
+   	label=GUI
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MyFrame70939[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MyFrame</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   arena: AgentsNPokemons [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   kRADIUS: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   minmaxX: double[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   minmaxY: double[] [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- drawAgants(g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >- drawArrow(g1: Graphics, x1: int, y1: int, x2: int, y2: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- drawBackground(g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >- drawEdge(e: EdgeData, g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >- drawGraph(g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >- drawNode(n: NodeData, r: int, g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >- drawPokemons(g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >- drawScore(g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >- fillminmax()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ paint(g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ paintComponents(g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >- scalex(x: double, min: double, max: double): double</TD></TR>
+<TR><TD ALIGN="LEFT" >- scaley(y: double, min: double, max: double): double</TD></TR>
+<TR><TD ALIGN="LEFT" >+ update(ar: AgentsNPokemons)</TD></TR>
+<TR><TD ALIGN="LEFT" >- updateFrame()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_727047606 { 
+   	label=gameClients
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Agent727047606[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Agent</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   currEdge: EdgeData [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   currNode: NodeData [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   dest: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   g: DirectedWeightedGraph [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pos: GeoLocation [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   speed: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   src: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   value: double [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ setNextNode(dest: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ update(jsonFormat: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+AgentsNPokemons727047606[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AgentsNPokemons</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   agents: List&lt;Agent&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   graph: DirectedWeightedGraph [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   info: List&lt;String&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pokemons: List&lt;Pokemon&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- isOnEdge(pos: GeoLocation, edge: EdgeData, type: int, g: DirectedWeightedGraph): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ parseAgents(agentsJSON: String, g: DirectedWeightedGraph): List&lt;Agent&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ parsePokemons(pokemonsJSON: String): ArrayList&lt;Pokemon&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateEdge(pokemon: Pokemon, g: DirectedWeightedGraph)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Pokemon727047606[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Pokemon</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   edge: EdgeData [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isChased: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pos: Point3D [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   type: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   value: double [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_96794 { 
+   	label=api
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   DirectWeightGraph96794[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DirectWeightGraph</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   MC: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   edge_size: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   edges: HashMap&lt;Integer, HashMap&lt;Integer, EdgeData&gt;&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   ingoing: HashMap&lt;Integer, HashSet&lt;Integer&gt;&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   node_size: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nodes: HashMap&lt;Integer, NodeData&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addNode(n: NodeData)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ connect(src: int, dest: int, w: double)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ containEdge(e: EdgeData): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ containNode(d: NodeData): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ edgeIter(): Iterator&lt;EdgeData&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ edgeIter(node_id: int): Iterator&lt;EdgeData&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >- edgeIterHelp(): Iterator&lt;EdgeData&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ edgeSize(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getEdge(src: int, dest: int): EdgeData</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getNode(key: int): NodeData</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getNodeKey(n: NodeData): int</TD></TR>
+<TR><TD ALIGN="LEFT" >- nodeInEdges(key: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ nodeIter(): Iterator&lt;NodeData&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >- nodeOutEdges(key: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ nodeSize(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeEdge(src: int, dest: int): EdgeData</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeNode(key: int): NodeData</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Edges96794[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Edges</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   dest: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   info: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   src: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tag: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   w: double [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Node96794[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Node</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   info: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   key: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   location: GeoLocation [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tag: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   weight: double [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ compareTo(o: Node): int</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Point3D96794[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Point3D</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   x: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   y: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   z: double [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ distance(g: GeoLocation): double</TD></TR>
+<TR><TD ALIGN="LEFT" >+ x(): double</TD></TR>
+<TR><TD ALIGN="LEFT" >+ y(): double</TD></TR>
+<TR><TD ALIGN="LEFT" >+ z(): double</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Agent727047606 -> DirectWeightGraph96794[arrowhead=none, arrowtail=empty, dir=both];
+AgentsNPokemons727047606 -> Agent727047606[label="agents
+[0..*]"];
+AgentsNPokemons727047606 -> Pokemon727047606[label="pokemons
+[0..*]"];
+DirectWeightGraph96794 -> Node96794[arrowhead=none, arrowtail=empty, dir=both];
+MyFrame70939 -> AgentsNPokemons727047606[label="arena
+[0..1]"];
+Pokemon727047606 -> Edges96794[arrowhead=none, arrowtail=empty, dir=both];
+Pokemon727047606 -> Point3D96794[label="pos
+[0..1]"];
+    
+}
+@enduml

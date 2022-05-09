@@ -1,6 +1,3 @@
-# Ex4_Final_PokemonGame
-
-  * *Made by Or Cohen and Shlomi Lantser*
 
 # About this project
 <details>
